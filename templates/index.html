@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    {% if get_num_of_patients  %}
+        <p>Number of patients who are positive for diabetes : <b>{{ pos_diabetes }}</b></p>
+        <p>Average age for patients with positive for Diabetes : <b>{{ avg_patients }}</b></p>
+
+    {% elif patients_with_age%}
+        <p>Number of patients who are positive("pos") for diabetes and age : <b>{{ patients_with_age_and_pos }}</b></p>
+    {% elif patients_list%}
+        <table align="center" border="1">
+        <tr>
+            <th>Pregnant</th>
+            <th>Glucose</th>
+            <th>Pressure</th>
+            <th>Triceps</th>
+            <th>Insulin</th>
+            <th>Mass</th>
+            <th>Pedigree</th>
+            <th>Age</th>
+            <th>Diabetes</th>
+        </tr>
+        {% for x in data %}
+            <tbody>
+            <tr align="center">
+                <td>{{ x.pregnant }}</td>
+                <td>{{ x.glucose }}</td>
+                <td>{{ x.pressure }}</td>
+                <td>{{ x.triceps }}</td>
+                <td>{{ x.insulin }}</td>
+                <td>{{ x.mass }}</td>
+                <td>{{ x.pedigree }}</td>
+                <td>{{ x.age }}</td>
+                <td>{{ x.diabetes }}</td>
+            </tr>
+            </tbody>
+        {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
